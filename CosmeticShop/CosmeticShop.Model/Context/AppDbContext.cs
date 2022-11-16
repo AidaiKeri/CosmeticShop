@@ -1,7 +1,7 @@
 ﻿using CosmeticShop.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-namespace StudentsManager.Backend.Context
+namespace CosmeticShop.Model.Context
 {
     public class AppDbContext : DbContext
     {
