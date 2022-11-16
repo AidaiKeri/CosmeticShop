@@ -6,3 +6,4 @@ namespace CosmeticShop.Model.Entities
         public int Id { get; set; }
     }
 }
+ 

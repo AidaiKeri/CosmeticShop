@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmeticShop", "CosmeticShop\CosmeticShop.csproj", "{65703F8B-021B-4704-AC74-8722914E5C32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmeticShop.Model", "CosmeticShop.Model\CosmeticShop.Model.csproj", "{FCBF121A-A32E-4BB5-9CD2-420B682E8EB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmeticShop.Model", "CosmeticShop.Model\CosmeticShop.Model.csproj", "{FCBF121A-A32E-4BB5-9CD2-420B682E8EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmeticShop.Data", "CosmeticShop.Data\CosmeticShop.Data.csproj", "{E85B625B-F6E4-43BB-9D2D-CD0D155ADDE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FCBF121A-A32E-4BB5-9CD2-420B682E8EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCBF121A-A32E-4BB5-9CD2-420B682E8EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCBF121A-A32E-4BB5-9CD2-420B682E8EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E85B625B-F6E4-43BB-9D2D-CD0D155ADDE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E85B625B-F6E4-43BB-9D2D-CD0D155ADDE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E85B625B-F6E4-43BB-9D2D-CD0D155ADDE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E85B625B-F6E4-43BB-9D2D-CD0D155ADDE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
