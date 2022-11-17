@@ -1,9 +1,11 @@
 ﻿
+using CosmeticShop.Model.AbstractClasses;
+
 namespace CosmeticShop.Model.Entities
 {
-    public class User
+    public class User : Entity
     { 
-        public int Id { get; set; }
+        
     }
 }
  
