@@ -15,9 +15,8 @@ namespace CosmeticShop.Model.Entities
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }
 
-        [DataType(DataType.ImageUrl)]
         [Url(ErrorMessage = "Неверный формат")]
-        [Required(ErrorMessage = "Добавьте картинку")]
+        
         public string ImageURL { get; set; }
 
         [DataType(DataType.Currency)]

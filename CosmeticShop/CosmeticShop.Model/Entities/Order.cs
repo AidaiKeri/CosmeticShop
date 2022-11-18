@@ -8,7 +8,6 @@ namespace CosmeticShop.Model.Entities
         public string Name { get; set; }
         public string LastName { get; set; }
 
-        [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "Неверный адрес!")]
         public string Email { get; set; }
         public string Address { get; set; }

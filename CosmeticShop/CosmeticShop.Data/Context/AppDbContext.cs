@@ -7,7 +7,11 @@ namespace CosmeticShop.Model.Context
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> ctx) : base(ctx)
+        //public AppDbContext(DbContextOptions<AppDbContext> ctx) : base(ctx)
+        //{
+
+        //}
+        public AppDbContext()
         {
 
         }
@@ -18,7 +22,9 @@ namespace CosmeticShop.Model.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Product { get; set; }
-       
+        public DbSet<SearchOperation> SearchOperations { get; set; }
+        public DbSet<SearchProduct> SerachProducts { get; set; }
+        public DbSet<Role> Roles { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             IConfiguration config = new ConfigurationBuilder()
