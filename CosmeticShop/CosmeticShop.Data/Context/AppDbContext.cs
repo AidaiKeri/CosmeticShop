@@ -7,10 +7,10 @@ namespace CosmeticShop.Model.Context
 {
     public class AppDbContext : DbContext
     {
-        //public AppDbContext(DbContextOptions<AppDbContext> ctx) : base(ctx)
-        //{
+        public AppDbContext(DbContextOptions<AppDbContext> ctx) : base(ctx)
+        {
 
-        //}
+        }
         public AppDbContext()
         {
 
