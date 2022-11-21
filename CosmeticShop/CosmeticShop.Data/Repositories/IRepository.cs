@@ -1,19 +1,14 @@
-﻿using CosmeticShop.Model.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CosmeticShop.Model.AbstractClasses;
 
-namespace CosmeticShop.Data.Repositories
+namespace CosmeticShop.Data
 {
-    public interface IRepository<T> where T : BaseEntity
+    public interface IRepository<TEntity> where TEntity : Entity
     {
-        public T Create(T entity);
-        public List<T> ReadAll();
-        public T ReadById(int id);
-        public T Update(T entity);
-        public void Delete(T entity);
-        public void DeleteById(int id);
+        public Task<IReadOnlyList<TEntity>> GetAll();
+        public Task<IReadOnlyList<TEntity>> GetAll(ISpecification<TEntity> specification);
+        Task<TEntity> Add(TEntity entity);
+        Task<TEntity> Update(TEntity entity);
+        Task Delete(TEntity entity);
+        Task<TEntity> GetById(int id);
     }
 }

@@ -1,32 +1,54 @@
-﻿using CosmeticShop.Models;
+﻿using CosmeticShop.Data;
+using CosmeticShop.WebApp.Views;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using Microsoft.Extensions.Logging;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CosmeticShop.Controllers
+namespace E_Shop_Cosmetic.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger _logger;
+        private readonly IProductsRepository _productsRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductsRepository productsRepository)
         {
             _logger = logger;
+            _productsRepository = productsRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            ViewBag.Title = "E-Cosmetics";
+            var messageBuilder = new StringBuilder($"Приветствуем на сайте");
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+            if (User.Identity.IsAuthenticated)
+            {
+                messageBuilder.Append($", {User.Identity.Name}!");
+            }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            else
+            {
+                messageBuilder.Append('!');
+            }
+
+            var obj = new HomeViewModel
+            {
+                Message = messageBuilder.ToString(),
+                Products = await _productsRepository.GetAll
+                (
+                    new ProductSpecification()
+                        .IncludeCategory()
+                        .SortByPrice()
+                        .WithoutTracking()
+                        .AddPagination(9)
+                ),
+            };
+
+            _logger.LogInformation("Home/Index is executed");
+
+            return View(obj);
         }
     }
 }
