@@ -1,4 +1,5 @@
-﻿using CosmeticShop.Data;
+﻿ using CosmeticShop.Data;
+using CosmeticShop.WebApp;
 using CosmeticShop.WebApp.Views;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,7 +21,7 @@ namespace E_Shop_Cosmetic.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.Title = "E-Cosmetics";
+            ViewBag.Title = "CosmeticShop";
             var messageBuilder = new StringBuilder($"Приветствуем на сайте");
 
             if (User.Identity.IsAuthenticated)

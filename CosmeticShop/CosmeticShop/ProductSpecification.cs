@@ -1,4 +1,5 @@
-﻿using CosmeticShop.Model.Entities;
+﻿using Abp.Specifications;
+using CosmeticShop.Model.Entities;
 using System.Linq.Expressions;
 
 namespace CosmeticShop.WebApp
@@ -72,4 +73,4 @@ namespace CosmeticShop.WebApp
 
 
 }
-}
+
