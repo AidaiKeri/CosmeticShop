@@ -1,12 +1,10 @@
-﻿ using CosmeticShop.Data;
-using CosmeticShop.WebApp;
+﻿using System.Text;
+using CosmeticShop.WebApp.Data;
 using CosmeticShop.WebApp.Views;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace E_Shop_Cosmetic.Controllers
+namespace CosmeticShop.Controllers.Controllers
 {
     public class HomeController : Controller
     {

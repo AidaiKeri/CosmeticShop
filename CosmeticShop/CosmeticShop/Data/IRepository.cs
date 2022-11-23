@@ -1,12 +1,7 @@
-﻿using E_Shop_Cosmetic.Data.AbstractClasses;
-using E_Shop_Cosmetic.Data.Specifications.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
+﻿using Abp.Domain.Entities;
+using Abp.Specifications;
 
-namespace E_Shop_Cosmetic.Data.Interfaces
+namespace CosmeticShop.WebApp.Data
 {
     public interface IRepository<TEntity> where TEntity : Entity
     {
