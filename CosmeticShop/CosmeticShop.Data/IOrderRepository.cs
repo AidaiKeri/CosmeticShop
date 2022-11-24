@@ -1,7 +1,7 @@
 ﻿using CosmeticShop.Data;
 using CosmeticShop.Model.Entities;
 
-namespace E_Shop_Cosmetic.Data.Interfaces
+namespace CosmeticShop.Data
 {
     public interface IOrderRepository : IRepository<Order>
     {

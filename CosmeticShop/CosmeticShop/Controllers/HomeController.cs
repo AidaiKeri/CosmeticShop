@@ -1,8 +1,8 @@
 ﻿using System.Text;
 using CosmeticShop.WebApp.Data;
+using CosmeticShop.WebApp.Data.Specifications;
 using CosmeticShop.WebApp.Views;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace CosmeticShop.Controllers.Controllers
 {

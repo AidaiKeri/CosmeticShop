@@ -2,7 +2,7 @@
 
 namespace CosmeticShop.WebApp.Data
 {
-    public interface IProductsRepository
+    public interface IProductsRepository : IRepository<Product>
     {
         Task<IReadOnlyList<Product>> GetProductsByIds(IEnumerable<int> ids);
         Task<Product> GetProductByName(string name);

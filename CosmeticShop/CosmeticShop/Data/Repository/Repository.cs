@@ -1,10 +1,12 @@
-﻿using CosmeticShop.Model.AbstractClasses;
+﻿using CosmeticShop.Data;
 using CosmeticShop.Model.Context;
+using CosmeticShop.Model.Entities;
+using E_Shop_Cosmetic.Data.Specifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace CosmeticShop.WebApp.Data.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         protected AppDbContext Context { get; set; }
         private DbSet<TEntity> EntitySet => Context.Set<TEntity>();
@@ -29,7 +31,7 @@ namespace CosmeticShop.WebApp.Data.Repository
         public Task Delete(TEntity entity)
         {
             ExceptionHelper.ThrowIfObjectWasNull(entity, nameof(entity), nameof(Delete));
-
+            
             EntitySet.Remove(entity);
             return Context.SaveChangesAsync();
         }
@@ -37,11 +39,6 @@ namespace CosmeticShop.WebApp.Data.Repository
         public async Task<IReadOnlyList<TEntity>> GetAll()
         {
             return await EntitySet.ToListAsync();
-        }
-
-        public async Task<IReadOnlyList<TEntity>> GetAll(ISpecification<TEntity> specification)
-        {
-            return await ApplySpecification(specification).ToListAsync();
         }
 
         public async Task<TEntity> GetById(int id)
@@ -62,6 +59,11 @@ namespace CosmeticShop.WebApp.Data.Repository
         protected IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> spec)
         {
             return SpecificationEvaluator.ApplySpecification(Context.Set<TEntity>().AsQueryable(), spec);
+        }
+
+        public async Task<IReadOnlyList<TEntity>> GetAll(ISpecification<TEntity> specification)
+        {
+            return await ApplySpecification(specification).ToListAsync();
         }
     }
 }

@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CosmeticShop.Model.Entities
 {
-    public class Product : Entity
+    public class Product : BaseEntity
     {
         [Required(ErrorMessage = "Имя товара обязательно!")]
-        public string Name { get; set; }
+        public new string Name { get; set; }
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }
 

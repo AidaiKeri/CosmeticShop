@@ -1,5 +1,6 @@
 ﻿using CosmeticShop.Model.Context;
 using CosmeticShop.Model.Entities;
+using CosmeticShop.WebApp.Data.Specifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace CosmeticShop.WebApp.Data.Repository

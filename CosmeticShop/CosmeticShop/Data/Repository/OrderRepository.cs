@@ -1,4 +1,7 @@
-﻿using CosmeticShop.Model.Entities;
+﻿using CosmeticShop.Model.Context;
+using CosmeticShop.Model.Entities;
+using CosmeticShop.WebApp.Data.Specifications;
+using E_Shop_Cosmetic.Data.Specifications;
 
 namespace CosmeticShop.WebApp.Data.Repository
 {

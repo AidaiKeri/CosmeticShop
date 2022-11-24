@@ -1,9 +1,10 @@
 ﻿using Abp.Domain.Entities;
-using Abp.Specifications;
+using CosmeticShop.Data;
+using CosmeticShop.Model.Entities;
 
 namespace CosmeticShop.WebApp.Data
 {
-    public interface IRepository<TEntity> where TEntity : Entity
+    public interface IRepository<TEntity> where TEntity : BaseEntity
     {
         public Task<IReadOnlyList<TEntity>> GetAll();
         public Task<IReadOnlyList<TEntity>> GetAll(ISpecification<TEntity> specification);

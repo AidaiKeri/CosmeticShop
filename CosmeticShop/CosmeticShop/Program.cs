@@ -4,11 +4,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.AspNetCore.Identity;
 using CosmeticShop.WebApp.Areas.Identity.Data;
 using Microsoft.Extensions.DependencyInjection;
+using CosmeticShop.WebApp.Data;
+using CosmeticShop.WebApp.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("IdentityContextConnection") ?? throw new InvalidOperationException("Connection string 'IdentityContextConnection' not found.");
 
 // Add services to the container.
+builder.Services.AddTransient<IProductsRepository, ProductRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<IdentityContext>(options=>options.UseSqlServer(connectionString));
 
