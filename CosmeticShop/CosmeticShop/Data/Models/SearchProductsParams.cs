@@ -1,0 +1,24 @@
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace CosmeticShop.WebApp.Data.Models
+{
+    public class SearchProductsParams
+    {
+        [BindingBehavior(BindingBehavior.Optional)]
+        public int? SearchProductId { get; set; }
+        [BindingBehavior(BindingBehavior.Optional)]
+        public string Name { get; set; }
+
+        public double? StartPrice { get; set; }
+        public double? EndPrice { get; set; }
+
+        [BindingBehavior(BindingBehavior.Optional)]
+        public int? CategoryId { get; set; }
+
+        [BindingBehavior(BindingBehavior.Optional)]
+        public bool IsAvailable { get; set; } = true;
+        [BindingBehavior(BindingBehavior.Optional)]
+        public bool IsSortByPriceRequired { get; set; }
+
+    }
+}

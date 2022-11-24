@@ -1,6 +1,6 @@
 ﻿using CosmeticShop.Model.Entities;
 
-namespace CosmeticShop.WebApp.Views
+namespace CosmeticShop.WebApp.Models
 {
     public class HomeViewModel
     {

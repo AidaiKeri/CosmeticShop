@@ -1,7 +1,8 @@
-﻿using E_Shop_Cosmetic.Data.Models;
+﻿using CosmeticShop.Model.Entities;
+using CosmeticShop.WebApp.Data.Models;
 using System.Collections.Generic;
 
-namespace E_Shop_Cosmetic.ViewModels
+namespace CosmeticShop.WebApp.Views.ViewModels
 {
     public class SearchOrderViewModel
     {

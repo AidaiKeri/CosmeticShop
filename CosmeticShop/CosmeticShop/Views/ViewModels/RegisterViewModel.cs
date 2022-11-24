@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace E_Shop_Cosmetic.ViewModels
+namespace CosmeticShop.WebApp.Views.ViewModels
 {
     public class RegisterViewModel
     {

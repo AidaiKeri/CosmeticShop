@@ -1,6 +1,7 @@
-﻿using E_Shop_Cosmetic.Data.Models;
+﻿using CosmeticShop.Model.Entities;
 
-namespace E_Shop_Cosmetic.ViewModels
+
+namespace CosmeticShop.WebApp.Views.ViewModels
 {
     public class ViewOrderViewModel
     {

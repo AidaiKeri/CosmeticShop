@@ -1,0 +1,36 @@
+﻿@model CosmeticShop.WebApp.Views.ViewModels.ProductsViewModel
+<h1>Результат поиска:</h1>
+
+<section class="view-products-header">
+    <hr />
+    <div class="view-products__block">
+        <h1 class="view-products__block__title">Вся косметика</h1>
+        <button class="btn btn-filter" id="btn_filter">
+            <img src="~/img/user.svg" alt="user" class="btn-icon">
+            <p class="btn-text">Фильтр</p>
+        </button>
+    </div>
+    <h3 class="view-products-header__category">@Model.ProductCategory</h3>
+</section>
+
+@if (Model.Products.Any())
+{
+    <section class="row mt-5 mb-2">
+
+        <div class="cards">
+            @{
+                foreach (var product in Model.Products)
+                {
+                    @await Html.PartialAsync("ShowProduct", product)
+                }
+            }
+        </div>
+    </section>
+}
+else
+{
+    <p class="text-capitalize">Ничего не найдено!</p>
+}
+
+
+@await Html.PartialAsync("ProductsFilter", Model.SearchParams)

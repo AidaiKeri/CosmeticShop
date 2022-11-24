@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\HomeViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Products\AddProduct.cshtml" />
+    <None Include="Views\Products\DeleteProduct.cshtml" />
+    <None Include="Views\Products\Product.cshtml" />
+    <None Include="Views\Products\Search.cshtml" />
+    <None Include="Views\Products\UpdateProduct.cshtml" />
+    <None Include="Views\Products\ViewProducts.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Abp" Version="7.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
