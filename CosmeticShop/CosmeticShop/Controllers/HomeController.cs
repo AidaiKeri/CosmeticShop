@@ -21,17 +21,17 @@ namespace CosmeticShop.Controllers.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Title = "CosmeticShop";
-            var messageBuilder = new StringBuilder($"Приветствуем на сайте");
+            var messageBuilder = new StringBuilder($"");
 
             if (User.Identity.IsAuthenticated)
             {
                 messageBuilder.Append($", {User.Identity.Name}!");
             }
 
-            else
-            {
-                messageBuilder.Append('!');
-            }
+            //else
+            //{
+            //    messageBuilder.Append('!');
+            //}
 
             var obj = new HomeViewModel
             {

@@ -1,7 +1,7 @@
 ﻿@model CosmeticShop.WebApp.Views.ViewModels.HomeViewModel
 
 <div class="header-input">
-    <form method="get" asp-controller="Products" asp-action="Search">
+    <form style="text-align: right" method="get" asp-controller="Products" asp-action="Search">
         <input type="text" name="Name" class="input input-address" placeholder="Поиск по названию" />
         <button class="btn btn-primary header-input__fix-btn">Искать</button>
     </form>
@@ -9,10 +9,10 @@
 
 <section class="sevises wow bounceInLeft" data-wow-delay="0.1s">
     <div class="container">
-        <div class="user-message">
+        <div style="text-align: center" class="user-message">
             <h1>@Model.Message</h1>
         </div>
-        <div class="info">
+        <div style="text-align: center" class="info">
             <h1 class="info-title">
                 Онлайн магазин косметики
             </h1>
