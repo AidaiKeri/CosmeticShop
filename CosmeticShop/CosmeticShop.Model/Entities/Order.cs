@@ -5,6 +5,7 @@ namespace CosmeticShop.Model.Entities
 {
     public class Order : BaseEntity
     {
+        public string Name { get; set; }
         public string LastName { get; set; }
 
         [EmailAddress(ErrorMessage = "Неверный адрес!")]

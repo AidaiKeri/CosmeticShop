@@ -2,7 +2,7 @@
 
 namespace CosmeticShop.Model.Entities
 {
-    public class Category : Entity
+    public class Category : BaseEntity
     {
         public string CategoryName { get; set; }
         public string Description { get; set; }
