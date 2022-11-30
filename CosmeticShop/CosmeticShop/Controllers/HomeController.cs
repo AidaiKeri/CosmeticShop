@@ -50,5 +50,28 @@ namespace CosmeticShop.Controllers.Controllers
 
             return View(obj);
         }
+        public IActionResult Catalog()
+        {
+            return View();
+        }
+        public IActionResult Face()
+        {
+            return View();
+        }
+        public IActionResult Body()
+        {
+            return View();
+        }
+
+        public IActionResult Hair()
+        {
+            return View();
+        }
+            
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
     }
 }
