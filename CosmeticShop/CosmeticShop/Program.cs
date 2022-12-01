@@ -6,12 +6,15 @@ using CosmeticShop.WebApp.Areas.Identity.Data;
 using Microsoft.Extensions.DependencyInjection;
 using CosmeticShop.WebApp.Data;
 using CosmeticShop.WebApp.Data.Repository;
+using CosmeticShop.Data;
+using CosmeticShop.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("IdentityContextConnection") ?? throw new InvalidOperationException("Connection string 'IdentityContextConnection' not found.");
 
 // Add services to the container.
-builder.Services.AddTransient<IProductsRepository, ProductRepository>();
+builder.Services.AddTransient<CosmeticShop.WebApp.Data.IProductsRepository, ProductRepository>();
+builder.Services.AddTransient<ICartRepository, CartRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<IdentityContext>(options=>options.UseSqlServer(connectionString));
 
