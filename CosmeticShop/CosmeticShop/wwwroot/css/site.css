@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.face-icon{
+    width: 200px;
+    height: 200px;
+}
