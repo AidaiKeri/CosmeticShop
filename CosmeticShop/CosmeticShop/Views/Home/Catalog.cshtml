@@ -1,22 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Каталог";
 }
-<h1>@ViewData["Title"]</h1>
+<h1 style="text-align:center">@ViewData["Title"]</h1>
 
-@*<p><strong>Для лица</strong></p>
-*@<img class="face-icon" src="~/img/cream.png" alt="Alternate Text" class="info-img" />
-<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Face"><strong>Для лица</strong></a>
+<div style="display:flex; flex-wrap:wrap; justify-content:space-around" class="vu_cont">
 
-
-@*<p><strong>Для тела</strong></p>*@
-<img src="~/img/Body.jpg" alt="Alternate Text" class="info-img" />
-<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Body"><strong>Для тела</strong></a>
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Face"><strong>Для лица</strong></a>
+        <img style="width:150px; height: 150px" class="face-icon" src="~/img/face-creamicon.png" alt="Alternate Text" class="info-img" />
+    </div>
 
 
-@*
-<p><strong>Для волос</strong></p>
-*@<img src="~/img/Hair.jpg" alt="Alternate Text" class="info-img" />
-<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Hair"><strong>Для волос</strong></a>
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Body"><strong>Для тела</strong></a>
+        <img style="width:150px; height: 150px" src="~/img/face-cream.png" alt="Alternate Text" class="info-img" />
+    </div>
 
+
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Hair"><strong>Для волос</strong></a>
+        <img style="width:150px; height: 150px" src="~/img/shampoo.png" alt="Alternate Text" class="info-img" />
+    </div>
+
+</div>
 
 
