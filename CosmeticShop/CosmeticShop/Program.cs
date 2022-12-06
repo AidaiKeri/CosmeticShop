@@ -1,10 +1,7 @@
 using CosmeticShop.Model.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.AspNetCore.Identity;
 using CosmeticShop.WebApp.Areas.Identity.Data;
-using Microsoft.Extensions.DependencyInjection;
-using CosmeticShop.WebApp.Data;
 using CosmeticShop.WebApp.Data.Repository;
 using CosmeticShop.Data;
 using CosmeticShop.Data.Repositories;

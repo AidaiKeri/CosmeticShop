@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using CosmeticShop.WebApp.Data;
 using CosmeticShop.WebApp.Data.Specifications;
-using CosmeticShop.WebApp.Views;
 using CosmeticShop.WebApp.Views.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 

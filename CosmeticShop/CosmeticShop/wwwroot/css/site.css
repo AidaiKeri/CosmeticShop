@@ -15,9 +15,35 @@ html {
 
 body {
   margin-bottom: 60px;
+
 }
 
 .face-icon{
     width: 200px;
     height: 200px;
 }
+
+.index-bg {
+    background-image: url(../img/page.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+}
+
+@media (min-width: 1000px) {
+    .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+}
+
+    .navbar {
+        margin-bottom: 0 !important;
+    }
+
+.header-input{
+    padding-top: 20px;
+}
+
