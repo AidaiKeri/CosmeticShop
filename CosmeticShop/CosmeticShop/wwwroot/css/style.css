@@ -132,6 +132,7 @@ a:hover {
     font-size: 39px;
     line-height: 46px;
     color: #302C34;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .info-paragraph {
     padding-top: 15px;
@@ -180,6 +181,14 @@ a:hover {
     display: inline-block;
     width: 10%;
     float: right;
+}
+
+.header-input.input-address {
+    width: 340px;
+    border-radius: 15px;
+    border-width: 1px;
+    padding: 5px;
+    border-color: lightgrey;
 }
 
 .cards {

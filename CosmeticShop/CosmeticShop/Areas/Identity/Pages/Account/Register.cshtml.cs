@@ -23,15 +23,15 @@ namespace CosmeticShop.WebApp.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<CosmeticShopUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-        //private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             UserManager<CosmeticShopUser> userManager,
             IUserStore<CosmeticShopUser> userStore,
             SignInManager<CosmeticShopUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
-            //RoleManager<IdentityRole> roleManager)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -39,7 +39,7 @@ namespace CosmeticShop.WebApp.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
-            //_roleManager = roleManager;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -99,12 +99,12 @@ namespace CosmeticShop.WebApp.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            //if (!await _roleManager.RoleExistsAsync(WC.Admin))
-            //{
-            //    await _roleManager.CreateAsync(new IdentityRole(WC.Admin));
-            //    await _roleManager.CreateAsync(new IdentityRole(WC.User));
+            if (!await _roleManager.RoleExistsAsync(WC.Admin))
+            {
+                await _roleManager.CreateAsync(new IdentityRole(WC.Admin));
+                await _roleManager.CreateAsync(new IdentityRole(WC.User));
 
-            //}
+            }
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -123,12 +123,15 @@ namespace CosmeticShop.WebApp.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    //await _userManager.AddToRoleAsync(user, WC.Admin);
-
-                    //if (User.IsInRole(WC.Admin))
-                    //{
-                    //    await _userManager.AddToRoleAsync(user, WC.User);
-                    //}
+                   
+                    if (User.IsInRole(WC.Admin))
+                    {
+                        await _userManager.AddToRoleAsync(user, WC.Admin);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, WC.User);
+                    }
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);

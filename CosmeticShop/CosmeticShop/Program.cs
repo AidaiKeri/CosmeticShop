@@ -5,17 +5,31 @@ using CosmeticShop.WebApp.Areas.Identity.Data;
 using CosmeticShop.WebApp.Data.Repository;
 using CosmeticShop.Data;
 using CosmeticShop.Data.Repositories;
+using CosmeticShop.Model.Entities;
+using CosmeticShop.WebApp.Data.Specifications.Base;
+using CosmeticShop.WebApp.Data.Specifications;
+using E_Shop_Cosmetic.Data.Specifications;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("IdentityContextConnection") ?? throw new InvalidOperationException("Connection string 'IdentityContextConnection' not found.");
 
 // Add services to the container.
+builder.Services.AddTransient<IRepository<Category>, DbRepository<Category>>();
 builder.Services.AddTransient<CosmeticShop.WebApp.Data.IProductsRepository, ProductRepository>();
 builder.Services.AddTransient<ICartRepository, CartRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<IdentityContext>(options=>options.UseSqlServer(connectionString));
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer("ConnectionString"));
+
+builder.Services.AddTransient(typeof(IRepository<>), typeof(DbRepository<>));
+//builder.Services.AddTransient<IRepository<Category>, DbRepository<Category>>();
+//builder.Services.AddTransient<CategorySpecification>();
+//builder.Services.AddTransient<ProductRepository>();
+
+//builder.Services.AddTransient<ProductSpecification>();
+
+//builder.Services.AddTransient<IRepository<Product>, DbRepository<Product>>();
 
 builder.Services.AddIdentity<CosmeticShopUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityContext>()

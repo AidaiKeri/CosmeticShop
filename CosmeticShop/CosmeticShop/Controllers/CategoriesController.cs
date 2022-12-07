@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using CosmeticShop.Model.Context;
 using CosmeticShop.Model.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CosmeticShop.WebApp.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly AppDbContext _context;

@@ -1,5 +1,4 @@
-﻿using CosmeticShop.Data.Repositories;
-using CosmeticShop.Model.Entities;
+﻿using CosmeticShop.Model.Entities;
 
 
 namespace CosmeticShop.Data

@@ -27,29 +27,29 @@ namespace CosmeticShop.WebApp.Controllers
         // GET: CartItems
         public async Task<IActionResult> Index()
         {
-            //var user = _context.Users.FirstOrDefault();
-            //var product = _context.Product.Find(2);
-            //try
-            //{
-            //    var cartItem = new CartItem
-            //    {
-            //        Product = (CartProduct)product,
-            //        User = (CartUser)user,
-            //        ProductId = product.Id,
-            //        UserId = user.Id,
-            //    };
-            //    _repository.Add(cartItem);
-            //    var a = _repository.GetAll().ToList();
+            var user = _context.Users.FirstOrDefault();
+            var product = _context.Product.Find(2);
+            try
+            {
+                var cartItem = new CartItem
+                {
+                    Product = (CartProduct)product,
+                    User = (CartUser)user,
+                    ProductId = product.Id,
+                    UserId = user.Id,
+                };
+                _repository.Add(cartItem);
+                var a = _repository.GetAll().ToList();
 
-            //    return NotFound();
-            //}
-            //catch(NullReferenceException ex)
-            //{
- 
-            //    return Problem(ex.Message);
+                return NotFound();
+            }
+            catch (NullReferenceException ex)
+            {
 
-            //}
-            return View();
+                return Problem(ex.Message);
+
+            }
+            
             
         }
     }

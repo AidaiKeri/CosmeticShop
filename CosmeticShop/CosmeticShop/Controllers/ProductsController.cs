@@ -1,4 +1,5 @@
-﻿using CosmeticShop.Model.Context;
+﻿using CosmeticShop.Data;
+using CosmeticShop.Model.Context;
 using CosmeticShop.Model.Entities;
 using CosmeticShop.WebApp.Data;
 using CosmeticShop.WebApp.Data.Models;
@@ -7,6 +8,7 @@ using CosmeticShop.WebApp.Views.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using IProductsRepository = CosmeticShop.WebApp.Data.IProductsRepository;
 
 namespace CosmeticShop.WebApp.Controllers
 {
@@ -21,10 +23,10 @@ namespace CosmeticShop.WebApp.Controllers
 
 
         private readonly IProductsRepository _cosmeticProductsRepository;
-        private readonly IRepository<Category> _categoriesRepository;
+        private readonly CosmeticShop.Data.IRepository<Category> _categoriesRepository;
         private readonly ILogger _logger;
 
-        public ProductsController(IProductsRepository products, IRepository<Category> category, ILogger<ProductsController> logger)
+        public ProductsController(IProductsRepository products, CosmeticShop.Data.IRepository<Category> category, ILogger<ProductsController> logger)
         {
             _cosmeticProductsRepository = products;
             _categoriesRepository = category;
@@ -61,7 +63,7 @@ namespace CosmeticShop.WebApp.Controllers
 
             _logger.LogInformation("Products\\ViewProducts is executed");
 
-            var categories = await _categoriesRepository.GetAll();
+            var categories = _categoriesRepository.ReadAll();
 
             ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
             ViewBag.Title = "Вывод продуктов";
@@ -111,7 +113,7 @@ namespace CosmeticShop.WebApp.Controllers
                                .WithoutTracking();
 
             ViewBag.Title = "Искомый товар";
-            ViewBag.Categories = new SelectList(await _categoriesRepository.GetAll(), "Id", "CategoryName");
+            ViewBag.Categories = new SelectList(_categoriesRepository.ReadAll(), "Id", "CategoryName");
 
             var viewModel = new ProductsViewModel
             {
@@ -130,17 +132,17 @@ namespace CosmeticShop.WebApp.Controllers
             return View(viewModel);
         }
 
-        [Authorize(Roles = IdentityRoleConstants.Admin)]
+        [Authorize(Roles = WC.Admin)]
         [HttpGet]
         public async Task<IActionResult> AddProduct()
         {
             ViewBag.Title = "Добавление продукта";
-            ViewBag.Categories = new SelectList(await _categoriesRepository.GetAll(), "Id", "CategoryName");
+            ViewBag.Categories = new SelectList(_categoriesRepository.ReadAll(), "Id", "CategoryName");
 
             return View();
         }
 
-        [Authorize(Roles = IdentityRoleConstants.Admin)]
+        [Authorize(Roles = WC.Admin)]
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product newProduct)
         {
@@ -151,7 +153,7 @@ namespace CosmeticShop.WebApp.Controllers
             return RedirectToAction("ViewProducts", "Products");
         }
 
-        [Authorize(Roles = IdentityRoleConstants.Admin)]
+        [Authorize(Roles = WC.Admin)]
         [HttpGet]
         public async Task<IActionResult> UpdateProduct(int id)
         {
@@ -163,12 +165,12 @@ namespace CosmeticShop.WebApp.Controllers
                 return NoContent();
             }
 
-            ViewBag.Categories = new SelectList(await _categoriesRepository.GetAll(), "Id", "CategoryName");
+            ViewBag.Categories = new SelectList(_categoriesRepository.ReadAll(), "Id", "CategoryName");
 
             return View(searchResult);
         }
 
-        [Authorize(Roles = IdentityRoleConstants.Admin)]
+        [Authorize(Roles = WC.Admin)]
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(int id, Product product)
         {
@@ -183,7 +185,7 @@ namespace CosmeticShop.WebApp.Controllers
             return RedirectToAction("ViewProducts", "Products");
         }
 
-        [Authorize(Roles = IdentityRoleConstants.Admin)]
+        [Authorize(Roles = WC.Admin)]
         [HttpGet]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -198,7 +200,7 @@ namespace CosmeticShop.WebApp.Controllers
             return View(searchResult);
         }
 
-        [Authorize(Roles = IdentityRoleConstants.Admin)]
+        [Authorize(Roles = WC.Admin)]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(int id, IFormCollection collection)

@@ -2,7 +2,7 @@
 {
     public static class WC
     {
-        public static string Admin = "Админ";
-        public static string User = "Пользователь";
+        public const string Admin = "Админ";
+        public const string User = "Пользователь";
     }
 }

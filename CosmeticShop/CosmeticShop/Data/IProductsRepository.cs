@@ -1,4 +1,6 @@
-﻿using CosmeticShop.Model.Entities;
+﻿using Abp.Domain.Repositories;
+using CosmeticShop.Data;
+using CosmeticShop.Model.Entities;
 
 namespace CosmeticShop.WebApp.Data
 {
