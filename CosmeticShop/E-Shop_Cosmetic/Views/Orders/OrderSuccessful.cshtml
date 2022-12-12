@@ -1,0 +1,14 @@
+﻿@model E_Shop_Cosmetic.Data.Models.Order
+
+<section class="order order-successful">
+    <h2 class="order__title">Ваш заказ зарегестрирован, скоро вам позвонят</h2>
+
+    @await Html.PartialAsync("ShowOrder", Model)
+
+    <div class="btn-block">
+        <a asp-action="Index" asp-controller="Home">
+            <span class="btn btn-primary btn-text">На главную</span>
+        </a>
+    </div>
+</section>
+

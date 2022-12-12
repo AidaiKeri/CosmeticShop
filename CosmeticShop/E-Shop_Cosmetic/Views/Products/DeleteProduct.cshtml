@@ -1,0 +1,24 @@
+﻿@model E_Shop_Cosmetic.Data.Models.Product
+
+<section id="delete-product">
+    <form asp-action="DeleteProduct" asp-controller="Products" asp-antiforgery="true" class="form form-delete-product">
+        <h3 class="form-header">Вы правда хотите удалить товар?</h3>
+        <dl class="dl-horizontal">
+            <dt class="form-group form-group__text-fix">
+                Название товара:@Model.Name
+            </dt>
+            <dt class="form-group">
+                <img src="@Model.ImageURL" class="card-image" alt="Alternate Text"/>
+            </dt>
+            <dt class="form-group" style="font-size:16px">
+                Цена товара:@Model.Price
+            </dt>
+        </dl>
+        <div class="form-group">
+            <a asp-action="ViewProducts" asp-controller="Products" class="btn-link">Back to List →</a>
+        </div>
+        <div class="btn-block">
+            <input type="submit" value="Delete" style="margin-top:0" class="btn btn-product" />
+        </div>
+    </form>
+</section>

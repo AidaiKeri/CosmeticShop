@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+    <title>About Store</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header">
+
+                <nav class="nav">
+                    <ul>
+                        <li><a><img src="/img/logoImge.jpg" /></a></li>
+                        <li><a href="/Home/Index">Главная</a></li>
+                        <li><a href="/Products/ViewProducts">Каталог</a></li>
+                        <li><a href="../html/contacts.html">Контакты</a></li>
+                        <li><a href="../html/about_store.html">О магазине</a></li>
+                    </ul>
+                </nav>
+
+                <!--<div class="buttons">
+                    <button class="btn" id="btn-basket">
+                        <img src="../img/basket.svg" alt="basket" class="btn-icon">
+                        <p class="btn-text">Корзина</p>
+                    </button>
+                </div>-->
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="about-us">
+            <div class="container">
+                <div class="about-us" >
+                    <div class="about-us__title">
+                        <h1>О магазине</h1>
+                        <hr class="hr-center" />
+                        <h2>CosmeticShop - это самый крупный интернет-магазин уходовой косметикив Кыргызстане.</h2>
+                        <img src="../img/about-us1.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="about-us__body">
+                        <p>
+                            Мы внимательно следим за новинками и трендами в области бьюти-индустрии. Вместе с тем, мы очень ценим натуральность, и следуем принципу «Не навреди».
+                            Современные средства по уходу за собой, основанные на натуральных компонентах, становятся все популярней. Окружающая искусственная действительность все больше вызывает у людей желание вернуться к источнику жизни – природе. 
+                            В нашем каталоге представлена косметика с уникальной рецептурой и натуральными компонентами  по уходу за телом, лицом, волосами, предназначенная для женщин, мужчин и детей.
+                            Магазин CosmeticShop задуман так, чтобы любой покупатель с легкостью мог найти   нужный ему продукт. Именно для этого мы уделили особое внимание удобству шоппинга на сайте CosmeticShop.
+                            Надеемся, вам у нас понравится.
+                        </p>
+                        <!--<ul class="about-us__body__ul">
+                            <li>
+                                
+                            </li>
+                        </ul>-->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="wrapper">
+                <nav class="nav">
+                    <ul>
+                        <li><a href="/Home/Index">Главная</a></li>
+                        <li><a href="/Products/ViewProducts">Каталог</a></li>
+                        <li><a href="../html/contacts.html">Контакты</a></li>
+                        <li><a href="../html/about_store.html">О магазине</a></li>
+                    </ul>
+                </nav>
+                <div class="social-networks">
+                    <a href="https://www.instagram.com/" class="social"><img src="../img/instagram.png" alt="instagram"></a>
+                    <a href="https://ru-ru.facebook.com/" class="social"><img src="../img/facebook.png" alt="facebook"></a>
+                    <a href="https://vk.com/" class="social"><img src="../img/vk.png" alt="vk"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <section class="modal-cart">
+        <div class="modal-dialog">
+            <!--<div class="modal-header modal-header-cart">
+                <h3 class="modal-title">Корзина</h3>
+                <button class="btn-close">&times;</button>
+            </div>-->
+
+            <div class="modal-body" id="products">
+
+            </div>
+
+            <div class="modal-footer">
+                <span class="modal-pricetag"></span>
+                <div class="footer-btns">
+                    <a href="/Orders/PlaceOrder">
+                        <button class="btn btn-primary">Оформить заказ</button>
+                    </a>
+                    <button class="btn btn-cancel">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/libraries/jquery.min.js"></script>
+    <script src="../js/libraries/wow.min.js"></script>
+    <script src="../js/main.js" type="module"></script>
+</body>
+</html>

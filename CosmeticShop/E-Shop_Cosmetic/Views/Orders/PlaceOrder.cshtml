@@ -1,0 +1,64 @@
+﻿@model E_Shop_Cosmetic.ViewModels.OrderViewModel
+
+<section class="order" id="order">
+    <div class="container">
+        <div class="order-contant">
+            <div class="cart-info">
+                <div class="cart-info__content">
+                    <div class="cart-info__title">
+                        Заказ
+                    </div>
+                    @* generate products *@
+                    <div class="card-info__body" id="cart_info_body">
+
+                    </div>
+                    @* generate total cost *@
+                    <div id="total-cost"></div>
+                </div>
+            </div>
+            <form class="form form-order" method="post" asp-action="PlaceOrder" asp-controller="Orders">
+                <div class="validation validation-fix" asp-validation-summary="ModelOnly"></div>
+                <div class="form-header">
+                    <h3>Оформление заказа</h3>
+                </div>
+                <div class="form-body">
+                    <div class="form-group">
+                        <label asp-for="Name" class="form-group__header">Введите Имя</label>
+                        <input type="text" asp-for="Name" class="form-group__input" placeholder="Айдай" />
+                        <span asp-validation-for="Name" class="fix-order-field-validation-error" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="form-group__header">Введите фамилию</label>
+                        <input type="text" asp-for="LastName" class="form-group__input" placeholder="Керимкулова" />
+                        <span asp-validation-for="LastName" class="fix-order-field-validation-error" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="form-group__header">Введите адрес</label>
+                        <input type="text" asp-for="Address" class="form-group__input" placeholder="г.Бишкек, Асанбай" />
+                        <span asp-validation-for="Address" class="fix-order-field-validation-error"/>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="form-group__header">Введите e-mail</label>
+                        <input type="text" asp-for="Email" class="form-group__input" placeholder="user@gmail.com" />
+                        <span asp-validation-for="Email" class="fix-order-field-validation-error" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="form-group__header">Введите телефон</label>
+                        <input asp-for="PhoneNumber" class="form-group__input" placeholder="+996(***)**-**-**" />
+                        <span asp-validation-for="PhoneNumber" class="fix-order-field-validation-error" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information" class="form-group__header form-group__wishes">Введите ваши пожелания:</label>
+                        <span asp-validation-for="Information" class="fix-order-field-validation-error" />
+                    </div>
+                    <div class="form-group">
+                        <textarea asp-for="Information" class="form-group__textarea" placeholder="Ваш текст"></textarea>
+                    </div>
+                </div>
+                <div class="btn-block">
+                    <input type="submit" class="btn btn-outline-dark" value="Заказать" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

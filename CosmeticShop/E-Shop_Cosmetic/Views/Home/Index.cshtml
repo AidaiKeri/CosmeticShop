@@ -1,0 +1,49 @@
+﻿@model HomeViewModel
+
+<div class="header-input">
+    <form method="get" asp-controller="Products" asp-action="Search">
+        <input type="text" name="Name" class="input input-address" placeholder="Поиск по названию"/>
+        <button class="btn btn-primary header-input__fix-btn">Искать</button>
+    </form>
+</div>
+
+<section class="sevises">
+    <div class="container">
+        <div class="user-message">
+            <h1>@Model.Message</h1>
+        </div>
+        <div class="info">
+            <h1 class="info-title">
+                Онлайн магазин косметики
+            </h1>
+            <img src="~/img/page.jpg" alt="Alternate Text" class="info-img" />
+        </div>
+    </div>
+</section>
+
+<section class="row mb-2">
+    <div class="cards">
+        @{
+            foreach (var product in Model.Products)
+            {
+                @await Html.PartialAsync("ShowProduct", product)
+            }
+        }
+    </div>
+    @if (User.IsInRole("admin"))
+    {
+        <div class="btn-block">
+            <a asp-action="AddProduct" asp-controller="Products">
+                <span class="btn btn-primary">
+                    <span class="btn-text">Добавить товар</span>
+                </span>
+            </a>
+            <a asp-action="ViewOrders" asp-controller="Orders">
+                <span class="btn btn-primary">
+                    <span class="btn-text">Просмотреть заказы</span>
+                </span>
+            </a>
+        </div>
+    }
+
+</section>
